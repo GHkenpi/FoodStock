@@ -7,19 +7,27 @@
 
 import UIKit
 
-class ChangeViewController: UIViewController {
+class ChangeViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var foodArray: [Dictionary<String, String>] = []
     let saveData = UserDefaults.standard
     
-    @IBOutlet var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        tableView.delegate = self
-        tableView.dataSource = self
+//        tableView.delegate = self
+//        tableView.dataSource = self
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        if saveData.array(forKey: "FOOD") != nil {
+            foodArray = saveData.array(forKey: "FOOD") as! [Dictionary<String, String>]
+        }
+        
+        tableView.reloadData()
     }
     
     @IBAction private func addButton() {
@@ -38,6 +46,7 @@ class ChangeViewController: UIViewController {
                 let foodDictionary = ["food": textFieldOnAlert.text!, "num": "0"]
                 foodArray.append(foodDictionary)
                 saveData.set(foodArray, forKey: "FOOD")
+                tableView.reloadData()
             }
 
             let cancelAction = UIAlertAction(title: "キャンセル", style: .cancel)
@@ -46,8 +55,12 @@ class ChangeViewController: UIViewController {
             alert.addAction(cancelAction)
             present(alert, animated: true)
         }
-    @IBAction func save(){
-        
+    @IBAction func save (_ tableView: UITableView, cellForRowAt indexPath: IndexPath){
+        let cell = tableView.cellForRow(at: indexPath)as! ChangeTableViewCell
+        var nowIndexPathDictionary = foodArray[indexPath.row]
+        nowIndexPathDictionary["num"] = cell.numTextField.text
+        foodArray[indexPath.row] = nowIndexPathDictionary
+        saveData.set(foodArray, forKey: "FOOD")
     }
 
     /*
@@ -59,33 +72,46 @@ class ChangeViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
-}
-
-extension ChangeViewController: UITableViewDelegate{
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-        print("you tapped me!")
-    }
-}
-
-extension ChangeViewController: UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return foodArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        var cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
             as! ChangeTableViewCell
         
-        var nowIndexPathDictionary = foodArray[indexPath.row]
+        let nowIndexPathDictionary = foodArray[indexPath.row]
         
         cell.foodLabel.text = nowIndexPathDictionary["food"]
         cell.preLabel.text = nowIndexPathDictionary["num"]
-        func cellsave(){
-            nowIndexPathDictionary["num"] = String(numTextField.text)
-        }
         
         return cell
     }
+
 }
+
+//extension ChangeViewController: UITableViewDelegate{
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+//
+//    }
+//}
+//
+//extension ChangeViewController: UITableViewDataSource{
+//
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return foodArray.count
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+//            as! ChangeTableViewCell
+//
+//        let nowIndexPathDictionary = foodArray[indexPath.row]
+//
+//        cell.foodLabel.text = nowIndexPathDictionary["food"]
+//        cell.preLabel.text = nowIndexPathDictionary["num"]
+//
+//        return cell
+//    }
+//}
