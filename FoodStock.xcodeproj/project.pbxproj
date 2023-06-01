@@ -22,9 +22,9 @@
 		05AD462E2A2264B20048B1F5 /* OrderTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AD462D2A2264B20048B1F5 /* OrderTableViewController.swift */; };
 		05AD46312A2264D10048B1F5 /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AD462F2A2264D10048B1F5 /* OrderTableViewCell.swift */; };
 		05AD46322A2264D10048B1F5 /* OrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05AD46302A2264D10048B1F5 /* OrderTableViewCell.xib */; };
-		05AD46342A2265620048B1F5 /* ChangeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AD46332A2265620048B1F5 /* ChangeTableViewController.swift */; };
 		05AD46372A22657D0048B1F5 /* ChangeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AD46352A22657D0048B1F5 /* ChangeTableViewCell.swift */; };
 		05AD46382A22657D0048B1F5 /* ChangeTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05AD46362A22657D0048B1F5 /* ChangeTableViewCell.xib */; };
+		05FE58022A281FB2006A9BE4 /* ChangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05FE58012A281FB2006A9BE4 /* ChangeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,9 +45,9 @@
 		05AD462D2A2264B20048B1F5 /* OrderTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewController.swift; sourceTree = "<group>"; };
 		05AD462F2A2264D10048B1F5 /* OrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
 		05AD46302A2264D10048B1F5 /* OrderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderTableViewCell.xib; sourceTree = "<group>"; };
-		05AD46332A2265620048B1F5 /* ChangeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeTableViewController.swift; sourceTree = "<group>"; };
 		05AD46352A22657D0048B1F5 /* ChangeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeTableViewCell.swift; sourceTree = "<group>"; };
 		05AD46362A22657D0048B1F5 /* ChangeTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChangeTableViewCell.xib; sourceTree = "<group>"; };
+		05FE58012A281FB2006A9BE4 /* ChangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,7 +96,7 @@
 				05AD462D2A2264B20048B1F5 /* OrderTableViewController.swift */,
 				05AD462F2A2264D10048B1F5 /* OrderTableViewCell.swift */,
 				05AD46302A2264D10048B1F5 /* OrderTableViewCell.xib */,
-				05AD46332A2265620048B1F5 /* ChangeTableViewController.swift */,
+				05FE58012A281FB2006A9BE4 /* ChangeViewController.swift */,
 				05AD46352A22657D0048B1F5 /* ChangeTableViewCell.swift */,
 				05AD46362A22657D0048B1F5 /* ChangeTableViewCell.xib */,
 			);
@@ -188,7 +188,7 @@
 				05AD46312A2264D10048B1F5 /* OrderTableViewCell.swift in Sources */,
 				052B0D4E2A1EF3D0006EDCF0 /* ListTableViewController.swift in Sources */,
 				052B0D342A1E2724006EDCF0 /* SceneDelegate.swift in Sources */,
-				05AD46342A2265620048B1F5 /* ChangeTableViewController.swift in Sources */,
+				05FE58022A281FB2006A9BE4 /* ChangeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -49,7 +49,6 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="changeWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9PF-mV-wp4"/>
-                                    <segue destination="0ry-8Z-ZSP" kind="presentation" modalPresentationStyle="fullScreen" id="Qm2-7q-K3o"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LdA-c4-EfA">
@@ -60,221 +59,186 @@
                                 <buttonConfiguration key="configuration" style="plain" title="発注記録"/>
                                 <connections>
                                     <action selector="logWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HAW-fz-IIE"/>
-                                    <segue destination="dzM-Ll-mLZ" kind="presentation" modalPresentationStyle="fullScreen" id="brv-eb-Xke"/>
                                 </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <connections>
-                        <segue destination="dHB-yd-FGo" kind="presentation" identifier="toStockView" modalPresentationStyle="fullScreen" id="mT3-kd-499"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="101.5267175572519" y="3.5211267605633805"/>
         </scene>
-        <!--在庫量入力-->
-        <scene sceneID="bJQ-bk-qdS">
+        <!--View Controller-->
+        <scene sceneID="7iH-i7-S07">
             <objects>
-                <tableViewController id="1BS-ZN-bbl" customClass="StockTableViewController" customModule="FoodStock" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Kdi-ep-vPM">
+                <viewController id="3XM-Kk-iQX" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Z9u-xk-QCj">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8Ee-QH-8de">
+                                <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="20"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="発注量一覧" id="nmH-jk-Li9">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="8lk-im-bbp"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="qxs-6R-kFJ"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="D7H-Kf-E8d">
+                                <rect key="frame" x="0.0" y="171" width="393" height="681"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="70" id="FKa-aY-VX5">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FKa-aY-VX5" id="g5j-11-1u5">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="70"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="1LG-ln-443">
+                                <rect key="frame" x="244" y="121" width="133" height="42"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="28i-G7-J1u">
+                                <rect key="frame" x="16" y="130" width="64" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="xwk-Za-E7m"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="stockCell" rowHeight="70" id="wJ8-24-5Cs" customClass="StockTableViewCell" customModule="FoodStock" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="50" width="393" height="70"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="wJ8-24-5Cs" id="hAk-Go-ugc">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="70"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="1BS-ZN-bbl" id="tWa-0f-zGq"/>
-                            <outlet property="delegate" destination="1BS-ZN-bbl" id="EPt-Hh-TYv"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="在庫量入力" id="5Nx-kZ-MAG">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Xcv-cJ-9Z0"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="r9A-M9-sEA"/>
-                    </navigationItem>
-                    <connections>
-                        <segue destination="Pe3-vc-ptu" kind="presentation" modalPresentationStyle="fullScreen" id="ST9-Pt-med"/>
-                    </connections>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="A01-4f-AnZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="C2c-ks-TEW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2252.6717557251909" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="1302" y="4"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="xiu-eP-1tg">
+        <!--Change View Controller-->
+        <scene sceneID="Xuu-kh-jtr">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dHB-yd-FGo" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Z7Z-vb-107">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="1BS-ZN-bbl" kind="relationship" relationship="rootViewController" id="ExC-T9-HCx"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1gR-V5-ADc" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1195" y="4"/>
-        </scene>
-        <!--発注記録-->
-        <scene sceneID="Eq3-xy-SX8">
-            <objects>
-                <tableViewController id="9Pe-Pj-euj" customClass="ListTableViewController" customModule="FoodStock" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="yld-ko-q2U">
+                <viewController id="Zu8-Yi-IH1" customClass="ChangeViewController" customModule="FoodStock" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ibC-qd-vcK">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EQf-k9-Hie">
+                                <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="20"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="定数変更" id="Tmh-cA-GBd">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="OPg-nq-lj1"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Eza-sM-FTn"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="O17-23-obl">
+                                <rect key="frame" x="0.0" y="171" width="393" height="681"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="70" id="J0k-8R-Xug" customClass="ChangeTableViewCell" customModule="FoodStock" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="J0k-8R-Xug" id="NKm-qC-Z4w">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="70"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I9B-QZ-0ix">
+                                <rect key="frame" x="16" y="130" width="64" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="03L-m4-XaK">
+                                <rect key="frame" x="283" y="125" width="94" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="食材追加"/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ih9-I4-Fwn"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="recordCell" rowHeight="70" id="N7g-C3-cRM" customClass="LIstTableViewCell" customModule="FoodStock" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="50" width="393" height="70"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="N7g-C3-cRM" id="07W-0w-vAe">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="70"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="9Pe-Pj-euj" id="nUQ-Rp-vqW"/>
-                            <outlet property="delegate" destination="9Pe-Pj-euj" id="xve-k9-vb4"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="発注記録" id="5z9-kz-aBC">
-                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="H62-Dm-50F"/>
-                    </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2l3-3H-vnp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XaE-n2-MoG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2253" y="780"/>
+            <point key="canvasLocation" x="102" y="865"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Ia4-To-W3t">
+        <!--View Controller-->
+        <scene sceneID="o8u-4S-n23">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dzM-Ll-mLZ" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="z7P-kt-fYC">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="9Pe-Pj-euj" kind="relationship" relationship="rootViewController" id="eyO-nz-88P"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hZ0-MQ-9ap" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1195" y="780"/>
-        </scene>
-        <!--定数変更-->
-        <scene sceneID="nfz-W5-hk0">
-            <objects>
-                <tableViewController id="uxt-NY-dO4" customClass="ChangeTableViewController" customModule="FoodStock" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="SCV-hF-YuG">
+                <viewController id="ubQ-6O-IQ0" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yGS-VG-l6p">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KiV-YR-gM2">
+                                <rect key="frame" x="0.0" y="59" width="393" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="20"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem title="発注量一覧" id="rRW-bH-eqd">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="pV0-7F-K7N"/>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="s0Y-iv-Nx1"/>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="bco-5s-Wu5">
+                                <rect key="frame" x="0.0" y="171" width="393" height="681"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="70" id="0mc-qg-GFY">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0mc-qg-GFY" id="3OC-wO-NtZ">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="70"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="KKe-sB-Xhf">
+                                <rect key="frame" x="244" y="121" width="133" height="42"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fop-Z9-Wvl">
+                                <rect key="frame" x="16" y="130" width="64" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="s1H-bg-Y9W"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="changeCell" rowHeight="70" id="5SE-vx-Sir" customClass="ChangeTableViewCell" customModule="FoodStock" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="50" width="393" height="70"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5SE-vx-Sir" id="vTS-0c-J2I">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="70"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="uxt-NY-dO4" id="ciQ-Av-unQ"/>
-                            <outlet property="delegate" destination="uxt-NY-dO4" id="Zbm-7D-VYE"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="定数変更" id="dUi-53-mVi">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Ool-oU-BF4"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="FWM-Tl-xyt"/>
-                    </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cXw-tj-Kxz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tBd-fj-FI4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2253" y="1554"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="UMh-bk-xus">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0ry-8Z-ZSP" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="oht-aZ-anw">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="uxt-NY-dO4" kind="relationship" relationship="rootViewController" id="swW-X0-TuC"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4aT-lH-k0N" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1195" y="1554"/>
-        </scene>
-        <!--発注記録-->
-        <scene sceneID="FsI-IA-zi3">
-            <objects>
-                <tableViewController id="Ldx-iW-LJJ" customClass="OrderTableViewController" customModule="FoodStock" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="ZLO-6S-lav">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="recordCell" rowHeight="70" id="7vc-qf-4JL" customClass="OrderTableViewCell" customModule="FoodStock" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="50" width="393" height="70"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="7vc-qf-4JL" id="4ly-J2-dGN">
-                                    <rect key="frame" x="0.0" y="0.0" width="393" height="70"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="Ldx-iW-LJJ" id="NyL-Ob-w8f"/>
-                            <outlet property="delegate" destination="Ldx-iW-LJJ" id="W0p-5X-cCM"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="発注記録" id="DWg-Xu-jcP">
-                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="4Dh-DF-8nA"/>
-                    </navigationItem>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NDX-XO-anD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4413" y="4"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="YWq-jk-Wkr">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Pe3-vc-ptu" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="D5U-BK-rN9">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Ldx-iW-LJJ" kind="relationship" relationship="rootViewController" id="Pg1-vx-jyb"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Gwm-Nh-2kE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3355" y="4"/>
+            <point key="canvasLocation" x="1302" y="865"/>
         </scene>
     </scenes>
     <resources>

@@ -39,6 +39,11 @@
                 </subviews>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="foodLabel" destination="Ys0-JE-FBQ" id="38S-Vl-TC8"/>
+                <outlet property="numTextField" destination="6Sb-PI-eMO" id="hLc-HP-pBV"/>
+                <outlet property="preLabel" destination="Jsm-9O-DPe" id="gci-VG-SZw"/>
+            </connections>
             <point key="canvasLocation" x="184.73282442748092" y="32.74647887323944"/>
         </tableViewCell>
     </objects>
