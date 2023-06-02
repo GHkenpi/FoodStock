@@ -16,6 +16,7 @@ class ChangeViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.register(UINib(nibName: "ChangeTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
 //        tableView.delegate = self
 //        tableView.dataSource = self
         // Do any additional setup after loading the view.
@@ -56,7 +57,7 @@ class ChangeViewController: UIViewController, UITableViewDelegate, UITableViewDa
             present(alert, animated: true)
         }
     @IBAction func save (_ tableView: UITableView, cellForRowAt indexPath: IndexPath){
-        let cell = tableView.cellForRow(at: indexPath)as! ChangeTableViewCell
+        var cell = tableView.cellForRow(at: indexPath)as! ChangeTableViewCell
         var nowIndexPathDictionary = foodArray[indexPath.row]
         nowIndexPathDictionary["num"] = cell.numTextField.text
         foodArray[indexPath.row] = nowIndexPathDictionary
