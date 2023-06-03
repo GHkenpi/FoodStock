@@ -56,13 +56,23 @@ class ChangeViewController: UIViewController, UITableViewDelegate, UITableViewDa
             alert.addAction(cancelAction)
             present(alert, animated: true)
         }
-    @IBAction func save (_ tableView: UITableView, cellForRowAt indexPath: IndexPath){
-        var cell = tableView.cellForRow(at: indexPath)as! ChangeTableViewCell
-        var nowIndexPathDictionary = foodArray[indexPath.row]
-        nowIndexPathDictionary["num"] = cell.numTextField.text
-        foodArray[indexPath.row] = nowIndexPathDictionary
+    
+    @IBAction func save (){
+        for index in 0...foodArray.count-1 {
+            let cell = tableView.cellForRow(at: [0,index]) as! ChangeTableViewCell
+            var nowIndexPathDictionary = foodArray[index]
+            nowIndexPathDictionary["num"] = cell.numTextField.text
+            foodArray[index] = nowIndexPathDictionary
+        }
         saveData.set(foodArray, forKey: "FOOD")
     }
+//    @IBAction func save (_ tableView: UITableView, cellForRowAt indexPath: IndexPath){
+//        var cell = tableView.cellForRow(at: indexPath)as! ChangeTableViewCell
+//        var nowIndexPathDictionary = foodArray[indexPath.row]
+//        nowIndexPathDictionary["num"] = cell.numTextField.text
+//        foodArray[indexPath.row] = nowIndexPathDictionary
+//        saveData.set(foodArray, forKey: "FOOD")
+//    }
 
     /*
     // MARK: - Navigation
@@ -73,6 +83,9 @@ class ChangeViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Pass the selected object to the new view controller.
     }
     */
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+            return 80
+        }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return foodArray.count
@@ -85,7 +98,7 @@ class ChangeViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let nowIndexPathDictionary = foodArray[indexPath.row]
         
         cell.foodLabel.text = nowIndexPathDictionary["food"]
-        cell.preLabel.text = nowIndexPathDictionary["num"]
+        cell.preLabel.text = "現在の定数：" + String(nowIndexPathDictionary["num"] ?? "0")
         
         return cell
     }

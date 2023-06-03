@@ -24,7 +24,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="現在の発注量" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jsm-9O-DPe">
-                        <rect key="frame" x="20" y="45" width="72" height="12"/>
+                        <rect key="frame" x="20" y="45" width="164" height="12"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="12"/>
                         <nil key="textColor"/>
@@ -44,7 +44,7 @@
                 <outlet property="numTextField" destination="6Sb-PI-eMO" id="hLc-HP-pBV"/>
                 <outlet property="preLabel" destination="Jsm-9O-DPe" id="gci-VG-SZw"/>
             </connections>
-            <point key="canvasLocation" x="184.73282442748092" y="32.74647887323944"/>
+            <point key="canvasLocation" x="183.96946564885496" y="32.394366197183103"/>
         </tableViewCell>
     </objects>
 </document>

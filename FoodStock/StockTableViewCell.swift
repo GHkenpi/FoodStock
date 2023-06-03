@@ -8,6 +8,10 @@
 import UIKit
 
 class StockTableViewCell: UITableViewCell {
+    
+    @IBOutlet var foodLabel: UILabel!
+    @IBOutlet var preLabel: UILabel!
+    @IBOutlet var numTextField: UITextField!
 
     override func awakeFromNib() {
         super.awakeFromNib()
