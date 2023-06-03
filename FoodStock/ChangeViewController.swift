@@ -65,6 +65,7 @@ class ChangeViewController: UIViewController, UITableViewDelegate, UITableViewDa
             foodArray[index] = nowIndexPathDictionary
         }
         saveData.set(foodArray, forKey: "FOOD")
+        self.dismiss(animated: true, completion: nil)
     }
 //    @IBAction func save (_ tableView: UITableView, cellForRowAt indexPath: IndexPath){
 //        var cell = tableView.cellForRow(at: indexPath)as! ChangeTableViewCell
@@ -104,28 +105,3 @@ class ChangeViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
 
 }
-
-//extension ChangeViewController: UITableViewDelegate{
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-//
-//    }
-//}
-//
-//extension ChangeViewController: UITableViewDataSource{
-//
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return foodArray.count
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-//            as! ChangeTableViewCell
-//
-//        let nowIndexPathDictionary = foodArray[indexPath.row]
-//
-//        cell.foodLabel.text = nowIndexPathDictionary["food"]
-//        cell.preLabel.text = nowIndexPathDictionary["num"]
-//
-//        return cell
-//    }
-//}

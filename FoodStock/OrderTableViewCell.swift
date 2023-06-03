@@ -8,6 +8,9 @@
 import UIKit
 
 class OrderTableViewCell: UITableViewCell {
+    
+    @IBOutlet var foodLabel: UILabel!
+    @IBOutlet var numLabel: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -10,8 +10,10 @@ import UIKit
 class StockViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var foodArray: [Dictionary<String, String>] = []
-    var orderArray: [[String: Any]] = []
+    var orderArray: [Dictionary<String, String>] = []
+    var recordArray: [[String: Any]] = []
     let saveData = UserDefaults.standard
+    let recordData = UserDefaults.standard
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -19,8 +21,8 @@ class StockViewController: UIViewController, UITableViewDelegate, UITableViewDat
         super.viewDidLoad()
         
         tableView.register(UINib(nibName: "StockTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
+        print(getCurrentDate())
         // Do any additional setup after loading the view.
-        let currentDate = getCurrentDate()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -28,10 +30,42 @@ class StockViewController: UIViewController, UITableViewDelegate, UITableViewDat
         if saveData.array(forKey: "FOOD") != nil {
             foodArray = saveData.array(forKey: "FOOD") as! [Dictionary<String, String>]
         }
-        if saveData.array(forKey: "STOCK") != nil {
-            orderArray = saveData.array(forKey: "STOCK") as! [[String: Any]]
+        if recordData.array(forKey: "RECORD") != nil {
+            recordArray = recordData.array(forKey: "RECORD") as! [[String: Any]]
+            print("save")
+        }
+        orderArray = []
+        for _ in 0...foodArray.count-1 {
+            let foodDictionary = ["food": "あ"]
+            orderArray.append(foodDictionary)
         }
         tableView.reloadData()
+    }
+    
+    
+    
+    @IBAction func save(){
+        if let savedArray = UserDefaults.standard.array(forKey: "RECORD") as? [[String: Any]] {
+                        recordArray = savedArray
+                }
+        for index in 0...foodArray.count-1 {
+            let cell = tableView.cellForRow(at: [0,index]) as! StockTableViewCell
+            let nowIndexPathDictionary = foodArray[index]
+            var nowOrderIndexPath = orderArray[index]
+            let order: Int = Int(nowIndexPathDictionary["num"]!)!
+            let number: Int = cell.numTextField.textToInt
+            if number <= order {
+                nowOrderIndexPath["num"] = String(order - number)
+            }else{
+                nowOrderIndexPath["num"] = "0"
+            }
+            nowOrderIndexPath["food"] = nowIndexPathDictionary["food"]
+            orderArray[index] = nowOrderIndexPath
+        }
+        var recordIndexPath: [String: Any] = ["date": getCurrentDate(), "foods": orderArray]
+        recordArray.append(recordIndexPath)
+        recordData.set(orderArray, forKey: "RECORD")
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -45,9 +79,8 @@ class StockViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
             as! StockTableViewCell
-        
         let nowIndexPathDictionary = foodArray[indexPath.row]
-        
+        var nowOrderIndexPath = orderArray[indexPath.row]
         cell.foodLabel.text = nowIndexPathDictionary["food"]
         cell.preLabel.text = "現在の定数：" + String(nowIndexPathDictionary["num"] ?? "0")
         
@@ -73,3 +106,13 @@ class StockViewController: UIViewController, UITableViewDelegate, UITableViewDat
     */
 
 }
+
+extension UITextField {
+    var textToInt: Int {
+        let text = self.text
+        let int = text
+            .flatMap{Int($0)} ?? 0
+        return int
+    }
+}
+

@@ -7,23 +7,67 @@
 
 import UIKit
 
-class ListViewController: UIViewController {
+class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
+    var recordArray: [[String: Any]] = []
+    var orderArray: [Dictionary<String, String>] = []
+    let recordData = UserDefaults.standard
+    var orderdata1 = ["food":"じゃがいも","num":"3"]
+    var orderdata2 = ["food":"にんじん","num":"2"]
+    var orderdata3 = ["food":"かぼちゃ","num":"1"]
+    
+    @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        tableView.register(UINib(nibName: "OrderTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
+        orderArray.append(orderdata1)
+        orderArray.append(orderdata2)
+        orderArray.append(orderdata3)
         // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        if recordData.array(forKey: "RECORD") != nil {
+            recordArray = recordData.array(forKey: "RECORD") as! [[String: Any]]
+            print("save")
+        }
+//        if recordData?.array(forKey: "RECORD") != nil {
+//            let orderdata = getOrderData(for: getCurrentDate())
+//            orderArray = orderdata!["foods"] as! [Dictionary<String, String>]
+//            print("dotable")
+//        }
+        tableView.reloadData()
     }
-    */
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+            return 80
+        }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return orderArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+            as! OrderTableViewCell
+        print("dotable")
 
+        let nowIndexPathDictionary = orderArray[indexPath.row]
+        
+        cell.foodLabel.text = nowIndexPathDictionary["food"]
+        cell.numLabel.text = nowIndexPathDictionary["num"]
+        
+        return cell
+    }
+    
+    func getOrderData(for date: String) -> [String: Any]? {
+            return orderArray.first { $0["date"] as? String == date }
+        }
+    
+    func getCurrentDate() -> String {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+            return dateFormatter.string(from: Date())
+        }
 }
