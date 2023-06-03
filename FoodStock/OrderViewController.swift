@@ -34,11 +34,11 @@ class OrderViewController: UIViewController, UITableViewDelegate, UITableViewDat
             recordArray = recordData.array(forKey: "RECORD") as! [[String: Any]]
             print("save")
         }
-//        if recordData?.array(forKey: "RECORD") != nil {
-//            let orderdata = getOrderData(for: getCurrentDate())
-//            orderArray = orderdata!["foods"] as! [Dictionary<String, String>]
-//            print("dotable")
-//        }
+        if recordData.array(forKey: "RECORD") != nil {
+            let orderdata = getOrderData(for: getCurrentDate())
+            orderArray = orderdata!["foods"] as! [Dictionary<String, String>]
+            print("dotable")
+        }
         tableView.reloadData()
     }
     

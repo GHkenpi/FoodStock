@@ -330,7 +330,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <datePicker contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="Yaw-98-eWB">
-                                <rect key="frame" x="244" y="89" width="133" height="34.333333333333343"/>
+                                <rect key="frame" x="244" y="89" width="133" height="34"/>
+                                <connections>
+                                    <action selector="GetDate:" destination="eOW-Er-GPf" eventType="editingDidEnd" id="2d6-fq-wZS"/>
+                                </connections>
                             </datePicker>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xpk-IP-xrQ"/>
@@ -354,6 +357,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="Label" destination="qs2-oa-Elc" id="gWR-2X-FCL"/>
+                        <outlet property="Picker" destination="Yaw-98-eWB" id="0TX-hy-2g6"/>
                         <outlet property="tableView" destination="yRK-fq-gLe" id="YPv-iF-0SI"/>
                     </connections>
                 </viewController>

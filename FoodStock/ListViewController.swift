@@ -11,6 +11,9 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
     var recordArray: [[String: Any]] = []
     var orderArray: [Dictionary<String, String>] = []
     let recordData = UserDefaults.standard
+    
+    @IBOutlet weak var Picker: UIDatePicker!
+    @IBOutlet weak var Label: UILabel!
     var orderdata1 = ["food":"じゃがいも","num":"3"]
     var orderdata2 = ["food":"にんじん","num":"2"]
     var orderdata3 = ["food":"かぼちゃ","num":"1"]
@@ -32,13 +35,30 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
             recordArray = recordData.array(forKey: "RECORD") as! [[String: Any]]
             print("save")
         }
-//        if recordData?.array(forKey: "RECORD") != nil {
-//            let orderdata = getOrderData(for: getCurrentDate())
-//            orderArray = orderdata!["foods"] as! [Dictionary<String, String>]
-//            print("dotable")
-//        }
+        if recordData.array(forKey: "RECORD") != nil {
+            let orderdata = getOrderData(for: getCurrentDate())
+            orderArray = orderdata!["foods"] as! [Dictionary<String, String>]
+            print("dotable")
+        }
         tableView.reloadData()
     }
+    
+    @IBAction func GetDate(_ sender: Any) {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "yyyy-MM-dd"
+
+            // UIDatePickerから日付を取得
+            let selectedDate = Picker.date
+
+            // DateFormatterを使用して日付を指定の形式の文字列に変換
+            let dateString = dateFormatter.string(from: selectedDate)
+            Label.text = dateString
+            if recordData.array(forKey: "RECORD") != nil {
+            let orderdata = getOrderData(for: dateString)
+                orderArray = orderdata!["foods"] as! [Dictionary<String, String>]
+                print("dotable")
+            }
+        }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
             return 80
