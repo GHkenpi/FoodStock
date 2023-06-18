@@ -60,11 +60,32 @@ class ChangeViewController: UIViewController, UITableViewDelegate, UITableViewDa
     @IBAction func save (){
         for index in 0...foodArray.count-1 {
             let cell = tableView.cellForRow(at: [0,index]) as! ChangeTableViewCell
-            var nowIndexPathDictionary = foodArray[index]
-            nowIndexPathDictionary["num"] = cell.numTextField.text
-            foodArray[index] = nowIndexPathDictionary
+            if let numText = cell.numTextField.text, let num = Int(numText) {
+                var nowIndexPathDictionary = foodArray[index]
+                nowIndexPathDictionary["num"] = cell.numTextField.text
+                foodArray[index] = nowIndexPathDictionary
+            } else {
+                let alert = UIAlertController(title: "定数入力漏れ", message: "すべての定数を入力してください", preferredStyle: .alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: .default))
+                    self.present(alert, animated: true, completion: nil)
+                return
+            }
+//            var nowIndexPathDictionary = foodArray[index]
+//            nowIndexPathDictionary["num"] = cell.numTextField.text
+//            foodArray[index] = nowIndexPathDictionary
         }
         saveData.set(foodArray, forKey: "FOOD")
+        let alertController = UIAlertController(title: "保存完了", message: "定数が保存されました", preferredStyle: UIAlertController.Style.alert)
+        let okAction = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler:{(action: UIAlertAction!) in
+                     DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                         self.dismiss(animated: true, completion: nil)
+                    }
+                   }
+                )
+                  alertController.addAction(okAction)
+                present(alertController, animated: true, completion: nil)
+    }
+    @IBAction func cancel (){
         self.dismiss(animated: true, completion: nil)
     }
 //    @IBAction func save (_ tableView: UITableView, cellForRowAt indexPath: IndexPath){

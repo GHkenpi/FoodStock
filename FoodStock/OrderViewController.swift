@@ -9,36 +9,28 @@ import UIKit
 
 class OrderViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
-    var recordArray: [[String: Any]] = []
     var orderArray: [Dictionary<String, String>] = []
-    let recordData = UserDefaults.standard
-    
-    var orderdata1 = ["food":"じゃがいも","num":"3"]
-    var orderdata2 = ["food":"にんじん","num":"2"]
-    var orderdata3 = ["food":"かぼちゃ","num":"1"]
+    let saveData = UserDefaults.standard
     
     @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UINib(nibName: "OrderTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
-        orderArray.append(orderdata1)
-        orderArray.append(orderdata2)
-        orderArray.append(orderdata3)
         // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        if recordData.array(forKey: "RECORD") != nil {
-            recordArray = recordData.array(forKey: "RECORD") as! [[String: Any]]
+        if saveData.array(forKey: String(getCurrentDate())) != nil {
+            orderArray = saveData.array(forKey: String(getCurrentDate())) as! [Dictionary<String, String>]
             print("save")
         }
-        if recordData.array(forKey: "RECORD") != nil {
-            let orderdata = getOrderData(for: getCurrentDate())
-            orderArray = orderdata!["foods"] as! [Dictionary<String, String>]
-            print("dotable")
-        }
+//        if recordData.array(forKey: "RECORD") != nil {
+//            let orderdata = getOrderData(for: getCurrentDate())
+//            orderArray = orderdata!["foods"] as! [Dictionary<String, String>]
+//            print("dotable")
+//        }
         tableView.reloadData()
     }
     
@@ -62,10 +54,6 @@ class OrderViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         return cell
     }
-    
-    func getOrderData(for date: String) -> [String: Any]? {
-            return orderArray.first { $0["date"] as? String == date }
-        }
     
     func getCurrentDate() -> String {
             let dateFormatter = DateFormatter()

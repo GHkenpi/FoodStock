@@ -28,7 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		052B0D2E2A1E2724006EDCF0 /* FoodStock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodStock.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		052B0D2E2A1E2724006EDCF0 /* Order Master.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Order Master.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		052B0D312A1E2724006EDCF0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		052B0D332A1E2724006EDCF0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		052B0D352A1E2724006EDCF0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -72,7 +72,7 @@
 		052B0D2F2A1E2724006EDCF0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				052B0D2E2A1E2724006EDCF0 /* FoodStock.app */,
+				052B0D2E2A1E2724006EDCF0 /* Order Master.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -106,9 +106,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		052B0D2D2A1E2724006EDCF0 /* FoodStock */ = {
+		052B0D2D2A1E2724006EDCF0 /* Order Master */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 052B0D422A1E2728006EDCF0 /* Build configuration list for PBXNativeTarget "FoodStock" */;
+			buildConfigurationList = 052B0D422A1E2728006EDCF0 /* Build configuration list for PBXNativeTarget "Order Master" */;
 			buildPhases = (
 				052B0D2A2A1E2724006EDCF0 /* Sources */,
 				052B0D2B2A1E2724006EDCF0 /* Frameworks */,
@@ -118,9 +118,9 @@
 			);
 			dependencies = (
 			);
-			name = FoodStock;
+			name = "Order Master";
 			productName = FoodStock;
-			productReference = 052B0D2E2A1E2724006EDCF0 /* FoodStock.app */;
+			productReference = 052B0D2E2A1E2724006EDCF0 /* Order Master.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -138,7 +138,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 052B0D292A1E2724006EDCF0 /* Build configuration list for PBXProject "FoodStock" */;
+			buildConfigurationList = 052B0D292A1E2724006EDCF0 /* Build configuration list for PBXProject "Order Master" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -151,7 +151,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				052B0D2D2A1E2724006EDCF0 /* FoodStock */,
+				052B0D2D2A1E2724006EDCF0 /* Order Master */,
 			);
 		};
 /* End PBXProject section */
@@ -333,8 +333,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 54JF92346P;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FoodStock/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -349,6 +351,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = app.Nakane.Kenpii.FoodStock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -360,8 +363,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 54JF92346P;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = FoodStock/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -376,6 +381,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = app.Nakane.Kenpii.FoodStock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -385,7 +391,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		052B0D292A1E2724006EDCF0 /* Build configuration list for PBXProject "FoodStock" */ = {
+		052B0D292A1E2724006EDCF0 /* Build configuration list for PBXProject "Order Master" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				052B0D402A1E2728006EDCF0 /* Debug */,
@@ -394,7 +400,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		052B0D422A1E2728006EDCF0 /* Build configuration list for PBXNativeTarget "FoodStock" */ = {
+		052B0D422A1E2728006EDCF0 /* Build configuration list for PBXNativeTarget "Order Master" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				052B0D432A1E2728006EDCF0 /* Debug */,

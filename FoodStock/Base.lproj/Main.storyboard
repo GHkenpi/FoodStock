@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -16,9 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Free Photo _ Wooden table with vegetables" translatesAutoresizingMaskIntoConstraints="NO" id="J2a-7Z-VMp">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Free Photo _ Wooden table with vegetables" translatesAutoresizingMaskIntoConstraints="NO" id="J2a-7Z-VMp">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order Master" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zr1-rH-Lge">
                                 <rect key="frame" x="69" y="175" width="255" height="35.333333333333343"/>
@@ -81,18 +80,22 @@
                         <constraints>
                             <constraint firstItem="zr1-rH-Lge" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ehe-b8-cuR"/>
                             <constraint firstItem="Zee-Op-mAx" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="HQy-Qh-q6u"/>
+                            <constraint firstAttribute="bottom" secondItem="J2a-7Z-VMp" secondAttribute="bottom" id="LKT-gY-klE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="LdA-c4-EfA" secondAttribute="trailing" constant="6" id="MNv-eA-uiz"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ogy-4x-WCs" secondAttribute="bottom" constant="150" id="T3l-11-f9a"/>
                             <constraint firstItem="zr1-rH-Lge" firstAttribute="top" secondItem="LdA-c4-EfA" secondAttribute="bottom" constant="71" id="UKB-di-qOf"/>
+                            <constraint firstItem="J2a-7Z-VMp" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="YiZ-RO-MVJ"/>
                             <constraint firstItem="ogy-4x-WCs" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aDh-cJ-Qe6"/>
                             <constraint firstItem="LdA-c4-EfA" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="dFG-Vb-heq"/>
+                            <constraint firstItem="J2a-7Z-VMp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="n4P-AE-kJh"/>
                             <constraint firstItem="ogy-4x-WCs" firstAttribute="top" secondItem="Zee-Op-mAx" secondAttribute="bottom" constant="30" id="rdh-fQ-HiV"/>
+                            <constraint firstItem="J2a-7Z-VMp" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="zUV-FG-Sgf"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="button1" destination="Zee-Op-mAx" id="Boq-8l-wZV"/>
                         <outlet property="button2" destination="ogy-4x-WCs" id="hTp-I4-Ceb"/>
-                        <segue destination="ViO-dA-2aJ" kind="presentation" identifier="toStockView" modalPresentationStyle="fullScreen" id="2hh-ej-7gx"/>
+                        <segue destination="XQ0-Nx-JHN" kind="presentation" identifier="toStockView" modalPresentationStyle="fullScreen" id="9Ba-ch-ge4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -148,7 +151,14 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="定数変更" id="Uac-Qq-SJP">
+                        <barButtonItem key="leftBarButtonItem" title="cancel" id="xn4-76-eNI">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="cancel" destination="Zu8-Yi-IH1" id="bc0-kS-nBf"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="save" id="n2w-wz-05R">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="save" destination="Zu8-Yi-IH1" id="S7t-WH-tQa"/>
                             </connections>
@@ -160,7 +170,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XaE-n2-MoG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1028.2442748091603" y="864.78873239436621"/>
+            <point key="canvasLocation" x="1331" y="865"/>
         </scene>
         <!--発注量-->
         <scene sceneID="hRo-zS-xun">
@@ -199,6 +209,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="発注量" id="NmD-Kw-zxX">
                         <barButtonItem key="rightBarButtonItem" title="戻る" id="Bv4-0z-BIS">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <segue destination="002-4H-Seh" kind="unwind" unwindAction="logWithSender:" id="gOO-be-Hd0"/>
                             </connections>
@@ -211,7 +222,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="82c-60-AKA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="002-4H-Seh" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4686.259541984733" y="3.5211267605633805"/>
+            <point key="canvasLocation" x="4815" y="4"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hl1-r1-Udc">
@@ -222,6 +233,20 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="VGT-sF-4JQ">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" systemColor="linkColor"/>
+                        <color key="barTintColor" systemColor="linkColor"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <navigationBarAppearance key="standardAppearance">
+                            <color key="backgroundColor" systemColor="linkColor"/>
+                        </navigationBarAppearance>
+                        <navigationBarAppearance key="scrollEdgeAppearance">
+                            <color key="backgroundColor" systemColor="linkColor"/>
+                        </navigationBarAppearance>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -231,81 +256,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VHH-QE-tuj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3653" y="4"/>
-        </scene>
-        <!--在庫量入力-->
-        <scene sceneID="0gN-wF-dCa">
-            <objects>
-                <viewController id="ssz-MZ-ug5" customClass="StockViewController" customModule="FoodStock" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Qjq-bS-mhZ">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="bec-md-ocu">
-                                <rect key="frame" x="0.0" y="144" width="393" height="708"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="ssz-MZ-ug5" id="15P-CI-lBH"/>
-                                    <outlet property="delegate" destination="ssz-MZ-ug5" id="eoF-FB-f7r"/>
-                                </connections>
-                            </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="在庫量を入力してください" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b4K-Mg-3O7">
-                                <rect key="frame" x="16" y="94" width="239" height="20"/>
-                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="q01-7Z-WL6"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="b4K-Mg-3O7" firstAttribute="top" secondItem="q01-7Z-WL6" secondAttribute="top" constant="50" id="4Xn-Ga-sY5"/>
-                            <constraint firstItem="bec-md-ocu" firstAttribute="leading" secondItem="q01-7Z-WL6" secondAttribute="leading" id="LUF-rF-8AD"/>
-                            <constraint firstItem="bec-md-ocu" firstAttribute="bottom" secondItem="q01-7Z-WL6" secondAttribute="bottom" id="Oa1-9d-knd"/>
-                            <constraint firstItem="bec-md-ocu" firstAttribute="trailing" secondItem="q01-7Z-WL6" secondAttribute="trailing" id="UPy-dE-qfu"/>
-                            <constraint firstItem="b4K-Mg-3O7" firstAttribute="leading" secondItem="q01-7Z-WL6" secondAttribute="leading" constant="16" id="j1H-wS-SJ0"/>
-                            <constraint firstItem="bec-md-ocu" firstAttribute="top" secondItem="b4K-Mg-3O7" secondAttribute="bottom" constant="30" id="uHi-pW-oYp"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="在庫量入力" id="yaf-a9-JtN">
-                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="sdw-Cp-Kz0">
-                            <connections>
-                                <segue destination="UTY-Mt-7xE" kind="unwind" unwindAction="logWithSender:" id="VaW-Uq-dLJ"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="gqG-uY-neG">
-                            <connections>
-                                <action selector="save" destination="ssz-MZ-ug5" id="O4y-IK-rcB"/>
-                                <segue destination="iWF-v2-91D" kind="presentation" modalPresentationStyle="fullScreen" id="F0X-9F-4J1"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="tableView" destination="bec-md-ocu" id="g8M-Y6-Nn5"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Rwi-PH-2go" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-                <exit id="UTY-Mt-7xE" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="2485" y="4"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="caG-ZB-isD">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ViO-dA-2aJ" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="Wyi-x5-bIC"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="EpG-K7-0Lr">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="ssz-MZ-ug5" kind="relationship" relationship="rootViewController" id="N8t-gy-9rI"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eI9-9L-TLE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1346" y="4"/>
         </scene>
         <!--発注記録-->
         <scene sceneID="Ytg-65-ZtO">
@@ -330,7 +280,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <datePicker contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" translatesAutoresizingMaskIntoConstraints="NO" id="Yaw-98-eWB">
-                                <rect key="frame" x="244" y="89" width="133" height="34"/>
+                                <rect key="frame" x="244" y="89" width="133" height="34.333333333333343"/>
                                 <connections>
                                     <action selector="GetDate:" destination="eOW-Er-GPf" eventType="editingDidEnd" id="2d6-fq-wZS"/>
                                 </connections>
@@ -351,6 +301,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="発注記録" id="hHk-E2-c7z">
                         <barButtonItem key="leftBarButtonItem" title="戻る" id="sIn-WW-4KN">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <segue destination="kp0-Zt-pmh" kind="unwind" unwindAction="logWithSender:" id="IgQ-3Q-FLS"/>
                             </connections>
@@ -365,7 +316,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nXm-U5-DKB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="kp0-Zt-pmh" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3411.450381679389" y="864.78873239436621"/>
+            <point key="canvasLocation" x="3653" y="865"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="mna-2D-Rbr">
@@ -375,6 +326,19 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="4D9-42-4iT">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" systemColor="linkColor"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <navigationBarAppearance key="standardAppearance">
+                            <color key="backgroundColor" systemColor="linkColor"/>
+                        </navigationBarAppearance>
+                        <navigationBarAppearance key="scrollEdgeAppearance">
+                            <color key="backgroundColor" systemColor="linkColor"/>
+                        </navigationBarAppearance>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -383,7 +347,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fQf-jv-Aeo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2272.5190839694656" y="864.78873239436621"/>
+            <point key="canvasLocation" x="2485" y="865"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="xt4-jm-Brs">
@@ -394,6 +358,20 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="8uq-A6-ofL">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" systemColor="linkColor"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <navigationBarAppearance key="standardAppearance">
+                            <color key="backgroundColor" systemColor="linkColor"/>
+                        </navigationBarAppearance>
+                        <navigationBarAppearance key="scrollEdgeAppearance">
+                            <color key="backgroundColor" systemColor="linkColor"/>
+                        </navigationBarAppearance>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -402,11 +380,109 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ufM-EY-Hvi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="101.5267175572519" y="864.78873239436621"/>
+            <point key="canvasLocation" x="102" y="865"/>
+        </scene>
+        <!--在庫量入力-->
+        <scene sceneID="ICv-GD-RU8">
+            <objects>
+                <viewController id="LiJ-sv-qFK" customClass="StockViewController" customModule="FoodStock" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xXJ-kh-GY7">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="BtU-q1-hvI">
+                                <rect key="frame" x="0.0" y="146" width="393" height="706"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="LiJ-sv-qFK" id="UGk-x0-szB"/>
+                                    <outlet property="delegate" destination="LiJ-sv-qFK" id="sUv-0q-1Yl"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="在庫量を入力してください" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B6c-kZ-LdT">
+                                <rect key="frame" x="16" y="94" width="361" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22" id="flF-4K-Se4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="22"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="d1F-0f-8ic"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="B6c-kZ-LdT" firstAttribute="leading" secondItem="d1F-0f-8ic" secondAttribute="leading" constant="16" id="F4D-Qz-upz"/>
+                            <constraint firstItem="B6c-kZ-LdT" firstAttribute="top" secondItem="d1F-0f-8ic" secondAttribute="top" constant="50" id="KAX-NJ-Igx"/>
+                            <constraint firstItem="BtU-q1-hvI" firstAttribute="bottom" secondItem="d1F-0f-8ic" secondAttribute="bottom" id="LrD-ea-ned"/>
+                            <constraint firstItem="BtU-q1-hvI" firstAttribute="trailing" secondItem="d1F-0f-8ic" secondAttribute="trailing" id="Y5K-3y-pyv"/>
+                            <constraint firstItem="BtU-q1-hvI" firstAttribute="top" secondItem="B6c-kZ-LdT" secondAttribute="bottom" constant="30" id="YMS-m0-Cu3"/>
+                            <constraint firstItem="d1F-0f-8ic" firstAttribute="trailing" secondItem="B6c-kZ-LdT" secondAttribute="trailing" constant="16" id="caJ-VP-G2M"/>
+                            <constraint firstItem="BtU-q1-hvI" firstAttribute="leading" secondItem="d1F-0f-8ic" secondAttribute="leading" id="tBb-N9-usd"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="在庫量入力" id="2bg-eC-rZV">
+                        <barButtonItem key="leftBarButtonItem" title="cancel" id="0tH-tp-Lz2">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="dMv-da-WrW" kind="unwind" unwindAction="logWithSender:" id="8NT-rv-lFo"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="save" id="3FA-OV-Cz6">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="save" destination="LiJ-sv-qFK" id="yHC-2v-Iwk"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="BtU-q1-hvI" id="wIh-33-BVa"/>
+                        <segue destination="iWF-v2-91D" kind="presentation" identifier="toOrderView" modalPresentationStyle="fullScreen" id="5zN-VY-nr3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b5F-Yx-3f9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="dMv-da-WrW" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="2485" y="4"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="His-rf-Zxg">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="XQ0-Nx-JHN" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="jNW-cy-E4q"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="pGO-cO-rA3">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" systemColor="linkColor"/>
+                        <color key="barTintColor" systemColor="linkColor"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <navigationBarAppearance key="standardAppearance">
+                            <color key="backgroundColor" systemColor="linkColor"/>
+                        </navigationBarAppearance>
+                        <navigationBarAppearance key="scrollEdgeAppearance">
+                            <color key="backgroundColor" systemColor="linkColor"/>
+                        </navigationBarAppearance>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="LiJ-sv-qFK" kind="relationship" relationship="rootViewController" id="2bY-dj-Tdq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9eW-CZ-gbD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1331" y="4"/>
         </scene>
     </scenes>
     <resources>
         <image name="Free Photo _ Wooden table with vegetables" width="417" height="626"/>
+        <systemColor name="linkColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

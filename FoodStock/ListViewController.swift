@@ -8,38 +8,25 @@
 import UIKit
 
 class ListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource{
-    var recordArray: [[String: Any]] = []
     var orderArray: [Dictionary<String, String>] = []
-    let recordData = UserDefaults.standard
+    let saveData = UserDefaults.standard
     
     @IBOutlet weak var Picker: UIDatePicker!
     @IBOutlet weak var Label: UILabel!
-    var orderdata1 = ["food":"じゃがいも","num":"3"]
-    var orderdata2 = ["food":"にんじん","num":"2"]
-    var orderdata3 = ["food":"かぼちゃ","num":"1"]
-    
     @IBOutlet weak var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UINib(nibName: "OrderTableViewCell", bundle: nil), forCellReuseIdentifier: "cell")
-        orderArray.append(orderdata1)
-        orderArray.append(orderdata2)
-        orderArray.append(orderdata3)
-        // Do any additional setup after loading the view.
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        if recordData.array(forKey: "RECORD") != nil {
-            recordArray = recordData.array(forKey: "RECORD") as! [[String: Any]]
+        if saveData.array(forKey: String(getCurrentDate())) != nil {
+            orderArray = saveData.array(forKey: String(getCurrentDate())) as! [Dictionary<String, String>]
             print("save")
         }
-        if recordData.array(forKey: "RECORD") != nil {
-            let orderdata = getOrderData(for: getCurrentDate())
-            orderArray = orderdata!["foods"] as! [Dictionary<String, String>]
-            print("dotable")
-        }
+        Label.text = (getCurrentDate())
         tableView.reloadData()
     }
     
@@ -53,10 +40,16 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
             // DateFormatterを使用して日付を指定の形式の文字列に変換
             let dateString = dateFormatter.string(from: selectedDate)
             Label.text = dateString
-            if recordData.array(forKey: "RECORD") != nil {
-            let orderdata = getOrderData(for: dateString)
-                orderArray = orderdata!["foods"] as! [Dictionary<String, String>]
-                print("dotable")
+            if saveData.array(forKey: dateString) != nil {
+               orderArray = saveData.array(forKey: dateString) as! [Dictionary<String, String>]
+               print("save")
+               tableView.reloadData()
+            } else{
+                orderArray = []
+                var nowOrderIndexPath = ["food":"-","num":"-"]
+                orderArray.append(nowOrderIndexPath)
+                print("発注履歴なし")
+                tableView.reloadData()
             }
         }
     
@@ -80,10 +73,6 @@ class ListViewController: UIViewController, UITableViewDelegate, UITableViewData
         
         return cell
     }
-    
-    func getOrderData(for date: String) -> [String: Any]? {
-            return orderArray.first { $0["date"] as? String == date }
-        }
     
     func getCurrentDate() -> String {
             let dateFormatter = DateFormatter()
